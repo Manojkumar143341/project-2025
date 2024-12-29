@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Attendance</title>
+    <style>
+        /* General reset and styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;  /* Light grayish background */
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            animation: fadeInPage 1s ease-in-out;
+        }
+
+        /* Navigation Bar Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to right, #ff7e5f, #feb47b); /* Warm gradient */
+            padding: 15px 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .navbar .logo h1 {
+            color: #fff;
+            font-size: 26px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ff6347;
+            transform: scale(1.1);
+        }
+
+        /* Services Section Styling */
+        .services {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: #fff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-top: 30px;
+            position: relative;
+            animation: slideInUp 1s ease-out;
+        }
+
+        .services h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .service-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            justify-items: center;
+            align-items: center;
+        }
+
+        .service-item {
+            background-color: #fff;
+            padding: 30px;
+            width: 250px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            background-color: #f8f9fa;
+        }
+
+        .service-item h3 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .service-item p {
+            font-size: 16px;
+            color: #777;
+        }
+
+        .service-item button {
+            background-color: #ff7e5f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-item button:hover {
+            background-color: #feb47b;
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Add animated background effect on hover */
+        .service-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.1);
+            transform: scale(0);
+            transition: transform 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .service-item:hover::before {
+            transform: scale(1);
+        }
+
+        /* New Page Transition Effect */
+        @keyframes fadeInPage {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            0% { transform: translateY(30px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #6a11cb;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+            transition: background-color 0.3s ease;
+        }
+
+        footer:hover {
+            background-color: #2575fc;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #ff6347;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .services h2 {
+                font-size: 28px;
+            }
+
+            .service-container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .service-item {
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <h1>Calendar 2025</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
+        </ul>
+    </nav>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>Have a great Year</h2>
+        <div class="service-container">
+            <div class="service-item">
+                <h3>January</h3>
+                <a href="january.html">
+                    <button>January</button>
+                </a>
+            </div>
+            <br>
+            <div class="service-item">
+                <h3>February</h3>
+                <a href="febraury.html">
+                    <button>February</button>
+                </a>
+            </div>
+            <br>
+            <div class="service-item">
+                <h3>March</h3>
+                <a href="march.html">
+                    <button>March</button>
+                </a>
+            </div>
+            <div class="service-item">
+                <h3>April</h3>
+                <a href="april.html">
+                    <button>April</button>
+                </a>
+            </div>
+            <br>
+            <div class="service-item">
+                <h3>May</h3>
+                <a href="may.html">
+                    <button>May</button>
+                </a>
+            </div>
+            <br>
+            <div class="service-item">
+                <h3>June</h3>
+                <a href="june.html">
+                    <button>June</button>
+                </a>
+            </div>
+            <div class="service-item">
+                <h3>July</h3>
+                <a href="july.html">
+                    <button>July</button>
+                </a>
+            </div>
+            <br>
+            <div class="service-item">
+                <h3>August</h3>
+                <a href="augest.html">
+                    <button>August</button>
+                </a>
+            </div>
+            <br>
+            <div class="service-item">
+                <h3>September</h3>
+                <a href="september.html">
+                    <button>September</button>
+                </a>
+            </div>
+            <div class="service-item">
+                <h3>October</h3>
+                <a href="october.html">
+                    <button>October</button>
+                </a>
+            </div>
+            <br>
+            <div class="service-item">
+                <h3>November</h3>
+                <a href="november.html">
+                    <button>November</button>
+                </a>
+            </div>
+            <br>
+            <div class="service-item">
+                <h3>December</h3>
+                <a href="december.html">
+                    <button>December</button>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Class Attendance System | <a href="contact.html">Contact Us</a></p>
+    </footer>
+
+</body>
+</html>

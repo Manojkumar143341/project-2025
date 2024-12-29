@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>June 2025 Calendar</title>
+    <style>
+        /* General Reset and Background Animation */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+          
+            background-size: 400% 400%;
+            animation: gradientShift 10s ease infinite;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        h1 {
+           
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Calendar Container */
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr); /* 7 columns for each day of the week */
+            gap: 10px;
+            width: 100%;
+            max-width: 800px;
+            margin-top: 20px;
+        }
+
+        .day {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            position: relative;
+        }
+
+        /* Hover effect for day */
+        .day:hover {
+            background-color: #ff6347;
+            color: white;
+            transform: rotate(10deg) scale(1.1);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Flip effect on click */
+        .day.clicked {
+            transform: rotateY(180deg);
+            transition: transform 0.6s ease;
+        }
+
+        /* Notes box styling */
+        .note-box {
+            position: absolute;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: none;
+            max-width: 250px;
+            z-index: 10;
+            color: #333;
+            font-size: 14px;
+            transition: transform 0.3s ease;
+        }
+
+        .note-box:hover {
+            background-color: #f1f1f1;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px);
+        }
+
+        /* Notes container */
+        .notes {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .notes .note {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 8px;
+            width: 230px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .notes .note:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-5px);
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+        }
+
+        footer a {
+            color: #ff6347;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>June 2025 Calendar</h1>
+
+    <!-- Calendar Grid -->
+    <div class="calendar">
+        <!-- Days of the week labels -->
+        <div>Sun</div>
+        <div>Mon</div>
+        <div>Tue</div>
+        <div>Wed</div>
+        <div>Thu</div>
+        <div>Fri</div>
+        <div>Sat</div>
+
+        <!-- Empty space before June 1st (June 2025 starts on a Sunday) -->
+        <div class="empty"></div>
+        <div class="empty"></div>
+        <div class="empty"></div>
+        <div class="empty"></div>
+
+        <!-- Days of June -->
+        <div class="day" data-day="1">1</div>
+        <div class="day" data-day="2">2</div>
+        <div class="day" data-day="3">3</div>
+        <div class="day" data-day="4">4</div>
+        <div class="day" data-day="5">5</div>
+        <div class="day" data-day="6">6</div>
+        <div class="day" data-day="7">7</div>
+
+        <div class="day" data-day="8">8</div>
+        <div class="day" data-day="9">9</div>
+        <div class="day" data-day="10">10</div>
+        <div class="day" data-day="11">11</div>
+        <div class="day" data-day="12">12</div>
+        <div class="day" data-day="13">13</div>
+        <div class="day" data-day="14">14</div>
+
+        <div class="day" data-day="15">15</div>
+        <div class="day" data-day="16">16</div>
+        <div class="day" data-day="17">17</div>
+        <div class="day" data-day="18">18</div>
+        <div class="day" data-day="19">19</div>
+        <div class="day" data-day="20">20</div>
+        <div class="day" data-day="21">21</div>
+
+        <div class="day" data-day="22">22</div>
+        <div class="day" data-day="23">23</div>
+        <div class="day" data-day="24">24</div>
+        <div class="day" data-day="25">25</div>
+        <div class="day" data-day="26">26</div>
+        <div class="day" data-day="27">27</div>
+        <div class="day" data-day="28">28</div>
+
+        <div class="day" data-day="29">29</div>
+        <div class="day" data-day="30">30</div>
+    </div>
+
+    <!-- Notes Section (will be populated dynamically) -->
+    <div class="notes">
+        <div class="note" id="note-1">International Children's Day (June 1)</div>
+        <div class="note" id="note-5">World Environment Day (June 5)</div>
+        <div class="note" id="note-21">Father's Day (June 21)</div>
+        <div class="note" id="note-30">End of June</div>
+        <!-- Add notes for other days as required -->
+    </div>
+
+    <!-- Hidden note box to display on day click -->
+    <div id="note-box" class="note-box"></div>
+
+    <footer>
+        <p>&copy; 2025 Dynamic Calendar | <a href="index.html">Back to Home</a></p>
+    </footer>
+
+    <script>
+        // JavaScript to handle displaying notes when a day is clicked
+        const days = document.querySelectorAll('.day');
+        const noteBox = document.getElementById('note-box');
+
+        const notes = {
+            1: "International Children's Day",
+            5: "World Environment Day",
+            21: "Father's Day",
+            30: "End of June",
+            // Add notes for other days as required...
+        };
+
+        days.forEach(day => {
+            day.addEventListener('click', () => {
+                const dayNumber = parseInt(day.dataset.day);
+
+                // Set the note for the clicked day
+                if (notes[dayNumber]) {
+                    noteBox.innerText = notes[dayNumber];
+                    noteBox.style.display = 'block';
+                    noteBox.style.top = `${day.offsetTop + 30}px`;
+                    noteBox.style.left = `${day.offsetLeft}px`;
+
+                    // Add flip effect
+                    day.classList.toggle('clicked');
+                }
+            });
+        });
+
+        // Hide the note box if clicked anywhere else
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.day')) {
+                noteBox.style.display = 'none';
+                days.forEach(day => {
+                    day.classList.remove('clicked');
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
